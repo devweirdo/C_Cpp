@@ -24,7 +24,7 @@ float squareroot(float num){
 }
 
 void main(){
-    float num = 56.42;
+    float num = 100;
     float ans = squareroot(num);
     printf("%f\n",ans);
 }
