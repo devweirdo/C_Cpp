@@ -1,1 +1,1 @@
-    printf("%s\n",data.characters);
+    print_node(root);

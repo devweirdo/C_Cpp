@@ -10,19 +10,26 @@ typedef struct node
 void insert_data(node* n,int data){
     node* temp;
     temp = (node*)malloc(sizeof(node));
-    while (n)
+    temp -> next = NULL;
+    temp -> data = data;
+    if (n == NULL)
     {
-        n = n->next;
+        n = temp;
     }
-    n->next = temp;
-    temp->data = data;
-    temp->next = NULL;
+    else
+    {
+        n -> next = temp; 
+        n = temp; 
+    }
+    // printf("%d ",n -> data);
 }
 
 void print_node(node* n){
-    while (n){
-    printf("%d\n", n -> data);
-    n = n->next;
+    node* p = n;
+    while (p != NULL)
+    {
+        printf("%d ", p -> data);
+        p = p -> next;
     }
 }
  
@@ -30,5 +37,6 @@ void main(){
     node *root;
     root = (node*)malloc(sizeof(node));
     insert_data(root,1);
-    print_node(root);
+    insert_data(root,3);
+    // print_node(root);
 }
