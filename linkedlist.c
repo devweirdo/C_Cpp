@@ -19,7 +19,7 @@ void insert_data(node* n,int data){
     else
     {
         n -> next = temp; 
-        n = temp; 
+        n = temp; //testing on this
     }
     // printf("%d ",n -> data);
 }
