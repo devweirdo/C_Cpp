@@ -1,27 +1,34 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-typedef struct linked_list
+typedef struct node
 {
     int data;
-    struct linkedlist* next;
-} Node;
+    struct node* next;
+} node;
 
+void insert_data(node* n,int data){
+    node* temp;
+    temp = (node*)malloc(sizeof(node));
+    while (n)
+    {
+        n = n->next;
+    }
+    n->next = temp;
+    temp->data = data;
+    temp->next = NULL;
+}
+
+void print_node(node* n){
+    while (n){
+    printf("%d\n", n -> data);
+    n = n->next;
+    }
+}
+ 
 void main(){
-    Node* head = NULL;
-    Node* second = NULL;
-    Node* third = NULL;
-    Node* end = NULL;
-
-    head = (Node*)malloc(sizeof(Node));
-    second = (Node*)malloc(sizeof(Node));
-    third = (Node*)malloc(sizeof(Node));
-
-    head -> data = 1;
-    head -> next = second;
-
-    second -> data = 2;
-    second -> next = third;
-
-    third -> data = 3;
-    third ->next = NULL;
+    node *root;
+    root = (node*)malloc(sizeof(node));
+    insert_data(root,1);
+    print_node(root);
 }
