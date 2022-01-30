@@ -7,7 +7,7 @@ typedef struct node
     struct node* next;
 } node;
 
-void insert_data(node* n,int data){
+void insert_data(node* n, int data){
     node* temp;
     temp = (node*)malloc(sizeof(node));
     temp -> next = NULL;
@@ -19,9 +19,17 @@ void insert_data(node* n,int data){
     else
     {
         n -> next = temp; 
-        n = temp; //checking on this again
+        n = temp;
     }
-    // printf("%d ",n -> data);
+}
+
+void del_node(node* n, int data){
+    node* temp;
+    if (n->data == data){
+        temp = n;
+        n = n->next;
+        free(temp);
+    }
 }
 
 void print_node(node* n){
@@ -38,5 +46,7 @@ void main(){
     root = (node*)malloc(sizeof(node));
     insert_data(root,1);
     insert_data(root,3);
-    // print_node(root);
+    print_node(root);
+    del_node(root,1);
+    print_node(root);
 }
