@@ -10,8 +10,9 @@ void insert_data(node** n, int data){
 
 // print every node->data of list
 void print_node(node** n){
-	node* temp = n;
-	temp = temp->next;
+	node* temp = *n;
+	// node* temp = n;
+	// temp = temp->next;
 	while (temp != NULL) {
 		printf("%d\n", temp->data);
 		temp = temp->next;
