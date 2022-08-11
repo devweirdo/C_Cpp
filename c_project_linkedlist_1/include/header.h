@@ -10,5 +10,6 @@ typedef struct node {
 
 // and functions
 
-void insert_data();
+void insert_node();
 void print_node();
+void delete_node();
